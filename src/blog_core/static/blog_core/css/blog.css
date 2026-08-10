@@ -1,0 +1,172 @@
+/* django-blog-core — minimal, Bootstrap-free public styles */
+:root {
+  --bc-bg: #f6f3ee;
+  --bc-surface: #fffdf9;
+  --bc-ink: #1c1a17;
+  --bc-muted: #5c574f;
+  --bc-accent: #0f6e56;
+  --bc-accent-soft: #d7efe6;
+  --bc-rule: #ddd5c8;
+  --bc-font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --bc-font-body: "Source Serif 4", "Source Serif Pro", "Libre Baskerville", Georgia, serif;
+  --bc-font-ui: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --bc-measure: 42rem;
+  --bc-radius: 0.35rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.blog-core {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--bc-ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, var(--bc-accent-soft), transparent 60%),
+    linear-gradient(180deg, #ebe4d8 0%, var(--bc-bg) 40%, #efe9df 100%);
+  font-family: var(--bc-font-body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.bc-wrap {
+  width: min(100% - 2rem, 52rem);
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.bc-site {
+  font-family: var(--bc-font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bc-accent);
+  margin: 0 0 0.75rem;
+}
+
+.bc-title {
+  font-family: var(--bc-font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.bc-lede {
+  color: var(--bc-muted);
+  max-width: var(--bc-measure);
+  margin: 0 0 2rem;
+}
+
+.bc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bc-card {
+  background: color-mix(in srgb, var(--bc-surface) 92%, white);
+  border: 1px solid var(--bc-rule);
+  border-radius: var(--bc-radius);
+  padding: 1.25rem 1.4rem;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.bc-card:hover {
+  border-color: color-mix(in srgb, var(--bc-accent) 45%, var(--bc-rule));
+  transform: translateY(-1px);
+}
+
+.bc-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bc-card h2 {
+  font-family: var(--bc-font-display);
+  font-size: 1.45rem;
+  margin: 0 0 0.4rem;
+}
+
+.bc-meta {
+  font-family: var(--bc-font-ui);
+  font-size: 0.85rem;
+  color: var(--bc-muted);
+  margin: 0 0 0.6rem;
+}
+
+.bc-teaser {
+  margin: 0;
+  color: var(--bc-muted);
+}
+
+.bc-article {
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-rule);
+  border-radius: var(--bc-radius);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.bc-article .bc-body {
+  max-width: var(--bc-measure);
+}
+
+.bc-article .bc-body > *:first-child {
+  margin-top: 0;
+}
+
+.bc-article .bc-body a {
+  color: var(--bc-accent);
+}
+
+.bc-article .bc-body pre,
+.bc-article .bc-body code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.92em;
+}
+
+.bc-article .bc-body pre {
+  background: #f0ebe3;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border-radius: var(--bc-radius);
+}
+
+.bc-preview-banner {
+  font-family: var(--bc-font-ui);
+  font-size: 0.85rem;
+  background: #fff3cd;
+  border: 1px solid #e6d28a;
+  color: #5c4b10;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--bc-radius);
+  margin-bottom: 1rem;
+}
+
+.bc-pager {
+  font-family: var(--bc-font-ui);
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bc-pager a {
+  color: var(--bc-accent);
+}
+
+.bc-feeds {
+  font-family: var(--bc-font-ui);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  color: var(--bc-muted);
+}
+
+.bc-feeds a {
+  color: var(--bc-accent);
+}

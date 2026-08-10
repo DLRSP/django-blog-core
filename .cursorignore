@@ -1,0 +1,9 @@
+# DLRSP baseline — limit Cursor indexing / agent context (OOM mitigation)
+# Canonical: ~/.cursor/context/dlrsp/templates/cursorignore-baseline.snippet
+.venv/
+venv/
+workdir/
+.pytest_cache/
+.git/
+*.pyc
+__pycache__/

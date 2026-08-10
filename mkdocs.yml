@@ -1,0 +1,44 @@
+---
+site_name: django-blog-core
+site_description: Reusable multi-blog Django app with feeds and hookset.
+site_url: https://dlrsp.github.io/django-blog-core/
+repo_url: https://github.com/DLRSP/django-blog-core
+repo_name: DLRSP/django-blog-core
+edit_uri: blob/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - git-revision-date
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Hookset: hookset.md
+  - Sanitize: sanitize.md
+  - Extras: extras.md

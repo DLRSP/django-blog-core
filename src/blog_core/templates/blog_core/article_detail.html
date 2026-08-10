@@ -1,0 +1,18 @@
+{% extends "blog_core/base.html" %}
+{% block title %}{{ article.title }} · {{ blog.name }}{% endblock %}
+{% block content %}
+  <p class="bc-site"><a href="{{ blog.get_absolute_url }}" style="color:inherit;text-decoration:none">{{ blog.name }}</a></p>
+  {% if is_preview %}
+    <div class="bc-preview-banner" role="status">Preview — not publicly listed</div>
+  {% endif %}
+  <article class="bc-article">
+    <h1 class="bc-title">{{ article.title }}</h1>
+    <p class="bc-meta">
+      {{ article.publish_at|date:"Y-m-d H:i" }}
+      {% if article.author %} · {{ article.author.get_username }}{% endif %}
+      · {{ article.get_state_display }}
+    </p>
+    {% if article.teaser %}<p class="bc-lede">{{ article.teaser }}</p>{% endif %}
+    <div class="bc-body">{{ body_html }}</div>
+  </article>
+{% endblock %}

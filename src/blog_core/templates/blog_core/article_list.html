@@ -1,0 +1,44 @@
+{% extends "blog_core/base.html" %}
+{% block title %}{{ blog.name }}{% endblock %}
+{% block content %}
+  <p class="bc-site">Blog</p>
+  <h1 class="bc-title">{{ blog.name }}</h1>
+  {% if blog.description %}
+    <p class="bc-lede">{{ blog.description }}</p>
+  {% endif %}
+
+  {% if articles %}
+    <ul class="bc-list">
+      {% for article in articles %}
+        <li class="bc-card">
+          <a href="{{ article.get_absolute_url }}">
+            <h2>{{ article.title }}</h2>
+            <p class="bc-meta">{{ article.publish_at|date:"Y-m-d" }}{% if article.author %} · {{ article.author.get_username }}{% endif %}</p>
+            {% if article.teaser %}<p class="bc-teaser">{{ article.teaser }}</p>{% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="bc-lede">No published articles yet.</p>
+  {% endif %}
+
+  {% if page_obj.paginator.num_pages > 1 %}
+    <nav class="bc-pager" aria-label="Pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">← Newer</a>
+      {% endif %}
+      <span>Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Older →</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+  <p class="bc-feeds">
+    Feeds:
+    <a href="{% url 'blog_core:feed_rss' blog.slug %}">RSS</a>
+    ·
+    <a href="{% url 'blog_core:feed_atom' blog.slug %}">Atom</a>
+  </p>
+{% endblock %}
