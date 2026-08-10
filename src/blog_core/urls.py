@@ -3,7 +3,11 @@
 from django.urls import path
 
 from blog_core.feeds import BlogArticleAtomFeed, BlogArticleFeed
-from blog_core.views import ArticleDetailView, ArticleListView, ArticlePreviewView
+from blog_core.views import (
+    ArticleDetailView,
+    ArticleListView,
+    ArticlePreviewView,
+)
 
 app_name = "blog_core"
 

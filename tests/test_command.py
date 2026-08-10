@@ -1,4 +1,4 @@
-"""S04–S05 publish_scheduled_articles command."""
+"""Tests for the publish_scheduled_articles management command."""
 
 from datetime import timedelta
 

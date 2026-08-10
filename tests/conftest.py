@@ -19,7 +19,9 @@ def user(db):
 
 @pytest.fixture
 def blog(db):
-    return Blog.objects.create(name="News", slug="news", description="Site news")
+    return Blog.objects.create(
+        name="News", slug="news", description="Site news"
+    )
 
 
 @pytest.fixture

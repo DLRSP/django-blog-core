@@ -6,6 +6,7 @@ Pinax-style customization without forking.
 # myapp/hooks.py
 from blog_core.hookset import DefaultBlogHookSet
 
+
 class BlogHookSet(DefaultBlogHookSet):
     def article_absolute_url(self, article):
         return f"/writing/{article.blog.slug}/{article.slug}/"

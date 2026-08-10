@@ -16,8 +16,10 @@ class ArticleListView(View):
 
     def get(self, request: HttpRequest, blog_slug: str) -> HttpResponse:
         blog = get_object_or_404(Blog, slug=blog_slug, is_active=True)
-        qs = Article.objects.published().filter(blog=blog).select_related(
-            "blog", "author", "section"
+        qs = (
+            Article.objects.published()
+            .filter(blog=blog)
+            .select_related("blog", "author", "section")
         )
         paginator = Paginator(qs, conf.get_setting("PAGINATE_BY", 12))
         page = paginator.get_page(request.GET.get("page") or 1)

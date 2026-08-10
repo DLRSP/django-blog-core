@@ -16,7 +16,7 @@ Example::
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from django.conf import settings
 from django.utils.module_loading import import_string
@@ -24,7 +24,7 @@ from django.utils.module_loading import import_string
 SETTING_NAME = "BLOG_CORE"
 HOOKSET_SETTING = "BLOG_CORE_HOOKSET"
 
-DEFAULTS: Dict[str, Any] = {
+DEFAULTS: dict[str, Any] = {
     # Dotted path to a BlogHookSet subclass, or None for the package default.
     "HOOKSET": "blog_core.hookset.DefaultBlogHookSet",
     "PAGINATE_BY": 12,
@@ -38,7 +38,7 @@ DEFAULTS: Dict[str, Any] = {
 }
 
 
-def get_config() -> Dict[str, Any]:
+def get_config() -> dict[str, Any]:
     """Return merged configuration (defaults + user overrides)."""
     user_config = getattr(settings, SETTING_NAME, None) or {}
     return {**DEFAULTS, **user_config}

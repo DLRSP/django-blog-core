@@ -5,7 +5,9 @@ from django.urls import reverse
 
 
 @pytest.mark.django_db
-def test_list_shows_published_only(client, blog, published_article, draft_article):
+def test_list_shows_published_only(
+    client, blog, published_article, draft_article
+):
     url = reverse("blog_core:article_list", kwargs={"blog_slug": blog.slug})
     resp = client.get(url)
     assert resp.status_code == 200
@@ -25,7 +27,9 @@ def test_detail_published(client, published_article):
     )
     resp = client.get(url)
     assert resp.status_code == 200
-    assert "Hello" in resp.content.decode() or "Published" in resp.content.decode()
+    assert (
+        "Hello" in resp.content.decode() or "Published" in resp.content.decode()
+    )
 
 
 @pytest.mark.django_db

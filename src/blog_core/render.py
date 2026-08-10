@@ -49,7 +49,9 @@ def markdown_to_html(text: str) -> str:
     """Convert Markdown to HTML. Requires the ``markdown`` extra."""
     try:
         import markdown
-    except ImportError as exc:  # pragma: no cover - exercised when extra missing
+    except (
+        ImportError
+    ) as exc:  # pragma: no cover - exercised when extra missing
         raise ImportError(
             "Markdown rendering requires the 'markdown' package. "
             "Install with: pip install 'django-blog-core[markdown]'"

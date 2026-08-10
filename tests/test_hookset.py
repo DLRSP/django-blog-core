@@ -1,4 +1,4 @@
-"""SEC-HOOK / hookset customization tests."""
+"""Hookset customization and permission boundary tests."""
 
 from django.test import override_settings
 
@@ -35,6 +35,6 @@ def test_blog_core_hookset_in_dict(settings, published_article):
     }
     # Clear top-level override if present
     if hasattr(settings, "BLOG_CORE_HOOKSET"):
-        delattr(settings, "BLOG_CORE_HOOKSET")
+        del settings.BLOG_CORE_HOOKSET
     hookset = get_hookset()
     assert isinstance(hookset, DenyAllHookSet)

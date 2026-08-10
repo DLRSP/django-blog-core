@@ -1,4 +1,4 @@
-"""S06–S07 syndication feeds."""
+"""Syndication feed tests (RSS / Atom)."""
 
 from datetime import timedelta
 
@@ -10,7 +10,9 @@ from blog_core.models import Article
 
 
 @pytest.mark.django_db
-def test_rss_excludes_non_public(client, blog, published_article, draft_article, user):
+def test_rss_excludes_non_public(
+    client, blog, published_article, draft_article, user
+):
     Article.objects.create(
         blog=blog,
         title="Sched",
@@ -22,9 +24,10 @@ def test_rss_excludes_non_public(client, blog, published_article, draft_article,
     url = reverse("blog_core:feed_rss", kwargs={"blog_slug": blog.slug})
     resp = client.get(url)
     assert resp.status_code == 200
-    assert "application/rss+xml" in resp["Content-Type"] or "xml" in resp[
-        "Content-Type"
-    ]
+    assert (
+        "application/rss+xml" in resp["Content-Type"]
+        or "xml" in resp["Content-Type"]
+    )
     body = resp.content.decode()
     assert published_article.title in body
     assert draft_article.title not in body

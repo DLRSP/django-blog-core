@@ -1,7 +1,6 @@
 # django-blog-core
 
 [![CI/CD](https://github.com/DLRSP/django-blog-core/actions/workflows/ci.yaml/badge.svg)](https://github.com/DLRSP/django-blog-core/actions/workflows/ci.yaml)
-[![PyPI](https://img.shields.io/pypi/v/django-blog-core.svg)](https://pypi.org/project/django-blog-core/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Reusable **multi-blog** Django app: `Blog`, optional `Section`, and `Article`
@@ -98,6 +97,14 @@ pip install -e ".[testing]"
 pytest
 # or: tox -e py313-django52
 ```
+
+### Browser E2E
+
+Package templates ship for reuse, but **browser E2E is deferred** until a
+registry consumer installs the app and wires public URLs (no consumer dogfood
+in this release). Module CI covers unit + Django Client/ORM/HTTP tests only.
+When a consumer integrates, run that consumer’s Playwright suite
+(`e2e_run.py --repo <consumer>`).
 
 ## License
 

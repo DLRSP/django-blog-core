@@ -1,4 +1,4 @@
-"""S01–S03 model / published manager tests."""
+"""Model and published-manager tests."""
 
 from datetime import timedelta
 

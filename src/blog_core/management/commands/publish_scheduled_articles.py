@@ -1,6 +1,6 @@
 """Promote due scheduled articles to published.
 
-Intended for cron / ``SH_DjangoCommand``-style hosts::
+Run from cron or any host scheduler::
 
     python manage.py publish_scheduled_articles
 """

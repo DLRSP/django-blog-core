@@ -108,3 +108,5 @@ AGENTS.md
 # Local helper scripts (never publish)
 exec_*.bat
 
+
+.cursorignore

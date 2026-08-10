@@ -158,7 +158,7 @@ class Article(models.Model):
         default=dict,
         blank=True,
         help_text=_(
-            "Forward-compatible attributes (e.g. future IP/fail2ban tags). "
+            "Forward-compatible structured attributes. "
             "Not used by core rendering."
         ),
     )

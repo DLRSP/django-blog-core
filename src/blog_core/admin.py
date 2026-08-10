@@ -124,4 +124,6 @@ class ArticleAdmin(admin.ModelAdmin):
         url = obj.get_preview_url()
         if not url:
             return "—"
-        return format_html('<a href="{}" target="_blank">{}</a>', url, _("Open"))
+        return format_html(
+            '<a href="{}" target="_blank">{}</a>', url, _("Open")
+        )

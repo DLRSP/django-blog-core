@@ -14,7 +14,9 @@ def test_markdown_to_html():
 
 
 def test_sanitize_strips_script():
-    dirty = '<p>ok</p><script>alert(1)</script><a href="javascript:alert(1)">x</a>'
+    dirty = (
+        '<p>ok</p><script>alert(1)</script><a href="javascript:alert(1)">x</a>'
+    )
     clean = sanitize_html(dirty)
     assert "<script>" not in clean
     assert "javascript:" not in clean
@@ -28,7 +30,7 @@ def test_article_render_html_sanitized(blog, user):
         blog=blog,
         title="XSS",
         slug="xss",
-        body='<p>hi</p><script>alert(1)</script>',
+        body="<p>hi</p><script>alert(1)</script>",
         body_format=Article.BODY_HTML,
         state=Article.STATE_PUBLISHED,
         author=user,
