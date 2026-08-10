@@ -441,6 +441,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># myapp/hooks.py</span>
 <span class="kn">from</span> <span class="nn">blog_core.hookset</span> <span class="kn">import</span> <span class="n">DefaultBlogHookSet</span>
 
+
 <span class="k">class</span> <span class="nc">BlogHookSet</span><span class="p">(</span><span class="n">DefaultBlogHookSet</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">article_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">article</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;/writing/</span><span class="si">{</span><span class="n">article</span><span class="o">.</span><span class="n">blog</span><span class="o">.</span><span class="n">slug</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">article</span><span class="o">.</span><span class="n">slug</span><span class="si">}</span><span class="s2">/&quot;</span>
