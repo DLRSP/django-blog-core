@@ -4,6 +4,21 @@ Changelog
 
 .. towncrier release notes start
 
+django-blog-core 0.1.1 (2026-08-10)
+===================================
+
+Bug Fixes
+---------
+
+- Install ``[markdown]`` and ``[sanitize]`` extras in the tox testenv so CI covers Markdown rendering and bleach sanitization.
+
+
+Improved Documentation
+----------------------
+
+- Keep README and contributing docs adoption-facing; add Docs, PyPI, and coverage badges after first publish.
+
+
 django-blog-core 0.1.0 (2026-08-10)
 ===================================
 
