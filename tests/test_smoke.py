@@ -5,8 +5,9 @@ from blog_core.extras import images, search, social, tags
 
 
 def test_version():
-    assert __version__ == "0.1.0"
-    assert VERSION[0] == 0
+    assert __version__
+    assert isinstance(VERSION, tuple)
+    assert VERSION[0] >= 0
 
 
 def test_extras_stubs():

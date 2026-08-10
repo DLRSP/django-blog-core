@@ -17,6 +17,7 @@ Improved Documentation
 ----------------------
 
 - Keep README and contributing docs adoption-facing; add Docs, PyPI, and coverage badges after first publish.
+- Stop hard-coding the package version in the smoke test so releases do not fail the matrix on every bump.
 
 
 django-blog-core 0.1.0 (2026-08-10)
