@@ -1,5 +1,0 @@
-Initial public release of ``django-blog-core``: multi-blog models
-(``Blog``, ``Section``, ``Article``), ``published()`` manager, pluggable
-``BLOG_CORE`` / ``BLOG_CORE_HOOKSET``, RSS + Atom feeds, scheduled publish
-command, admin UX, list/detail templates, and optional ``[markdown]`` /
-``[sanitize]`` extras (plus stubs for search/tags/social/images).

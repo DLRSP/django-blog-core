@@ -1,6 +1,7 @@
 include *.py
 include *.rst
 include *.md
+include *.toml
 include *.yaml
 include *.yml
 include *.cfg

@@ -1,4 +1,4 @@
-"""S10–S11 markdown + sanitize render tests."""
+"""Markdown and HTML sanitize render tests."""
 
 import pytest
 from django.test import override_settings

@@ -4,7 +4,7 @@ Changelog
 
 .. towncrier release notes start
 
-django-blog-core 0.1.0 (unreleased)
+django-blog-core 0.1.0 (2026-08-10)
 ===================================
 
 Features
