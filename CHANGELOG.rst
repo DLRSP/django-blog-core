@@ -4,6 +4,12 @@ Changelog
 
 .. towncrier release notes start
 
+blog_core 0.1.2 (2026-08-11)
+============================
+
+No significant changes.
+
+
 django-blog-core 0.1.1 (2026-08-10)
 ===================================
 

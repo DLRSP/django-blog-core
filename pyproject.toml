@@ -185,7 +185,7 @@ package = "blog_core"
 package_dir = "src"
 filename = "CHANGELOG.rst"
 directory = "news/"
-version = "0.1.1"
+version = "0.1.2"
 issue_format = "`#{issue} <https://github.com/DLRSP/django-blog-core/issues/{issue}>`_"
 type = [
   { name = "Process",                   directory = "process", showcontent = true },
@@ -198,7 +198,7 @@ type = [
 ]
 
 [tool.bumpversion]
-current_version = "0.1.1"
+current_version = "0.1.2"
 commit = true
 tag = true
 allow_dirty = true
