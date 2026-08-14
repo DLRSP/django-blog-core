@@ -12,7 +12,8 @@ a Pinax-style **hookset**, secret preview URLs, and optional Markdown / HTML
 sanitize extras.
 
 > Status: **0.1.x** on PyPI. Extras `[search]`, `[tags]`, `[social]`,
-> `[images]` are documented stubs.
+> `[images]` are documented stubs; `[events]` ships a working, opt-in
+> `ArticleEvent` timeline model.
 
 ## Install
 
@@ -92,6 +93,7 @@ forking the package. Hooksets must not widen the public queryset.
 | `[tags]` | stub — tagging integration |
 | `[social]` | stub — share matrix |
 | `[images]` | stub — media attachments |
+| `[events]` | domain-neutral `ArticleEvent` timeline; opt in via `INSTALLED_APPS` — see `docs/extras.md` |
 
 ## Development
 

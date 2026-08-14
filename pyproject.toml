@@ -72,6 +72,7 @@ search = []
 tags = []
 social = []
 images = []
+events = []
 all = [
     "markdown>=3.5",
     "bleach>=6.0",
