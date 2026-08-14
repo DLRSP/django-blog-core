@@ -375,6 +375,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extras
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -391,6 +409,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        events
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -415,6 +463,25 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        events
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -474,9 +541,43 @@
 <td>stub</td>
 <td>Future media / image-primary format</td>
 </tr>
+<tr>
+<td><code>events</code></td>
+<td>implemented</td>
+<td>Domain-neutral <code>ArticleEvent</code> timeline, opt-in app</td>
+</tr>
 </tbody>
 </table>
 <p>Stubs live under <code>blog_core.extras.*</code> for discoverability.</p>
+<h2 id="events"><code>events</code><a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<p><code>blog_core.extras.events</code> ships a domain-neutral <code>ArticleEvent</code> model: a
+timestamped occurrence attached to an <code>Article</code> (<code>article</code>, <code>occurred_at</code>,
+<code>label</code>, <code>source</code>, <code>source_id</code>, <code>body</code>, <code>metadata</code>). It carries no domain
+vocabulary of its own, so a host can use it for any per-article timeline
+(access log, webhook deliveries, audit trail, ...). <code>(source, source_id)</code>
+is unique, so re-importing the same upstream record is idempotent.</p>
+<p>The model and its migrations only load when the app is opted in:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;django-blog-core[events]&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="s2">&quot;blog_core&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blog_core.extras.events&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">blog_core.extras.events.models</span> <span class="kn">import</span> <span class="n">ArticleEvent</span>
+
+<span class="n">ArticleEvent</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">article</span><span class="o">=</span><span class="n">article</span><span class="p">,</span>
+    <span class="n">source</span><span class="o">=</span><span class="s2">&quot;my-importer&quot;</span><span class="p">,</span>
+    <span class="n">source_id</span><span class="o">=</span><span class="s2">&quot;42&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;example-tag&quot;</span><span class="p">,</span>
+    <span class="n">occurred_at</span><span class="o">=</span><span class="n">timestamp</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">article</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># chronological timeline, oldest first</span>
+</code></pre></div>
 
 
 
@@ -497,7 +598,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-08-10
+    2026-08-14
   </span>
 
     

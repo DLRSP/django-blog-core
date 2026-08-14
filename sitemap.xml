@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dlrsp.github.io/django-blog-core/</loc>
-         <lastmod>2026-08-10</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://dlrsp.github.io/django-blog-core/extras/</loc>
-         <lastmod>2026-08-10</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://dlrsp.github.io/django-blog-core/getting-started/</loc>
-         <lastmod>2026-08-10</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://dlrsp.github.io/django-blog-core/hookset/</loc>
-         <lastmod>2026-08-10</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://dlrsp.github.io/django-blog-core/sanitize/</loc>
-         <lastmod>2026-08-10</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
 </urlset>
