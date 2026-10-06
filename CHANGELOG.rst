@@ -4,6 +4,12 @@ Changelog
 
 .. towncrier release notes start
 
+blog_core 0.1.6 (2026-10-06)
+============================
+
+No significant changes.
+
+
 blog_core 0.1.5 (2026-08-27)
 ============================
 
